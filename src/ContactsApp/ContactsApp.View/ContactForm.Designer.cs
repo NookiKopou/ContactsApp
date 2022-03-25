@@ -218,7 +218,7 @@ namespace ContactsApp.View
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Name = "ContactForm";
-            this.Text = "ContactForm";
+            this.Text = "Add/Edit Contact";
             this.ResumeLayout(false);
             this.PerformLayout();
 
