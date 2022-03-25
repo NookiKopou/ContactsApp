@@ -31,5 +31,11 @@ namespace ContactsApp.View
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ContactForm contactForm = new ContactForm();
+            contactForm.Show();
+        }
     }
 }
