@@ -197,6 +197,7 @@ namespace ContactsApp.View
             this.button2.TabIndex = 29;
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // ContactForm
             // 
@@ -217,6 +218,7 @@ namespace ContactsApp.View
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "ContactForm";
             this.Text = "Add/Edit Contact";
             this.ResumeLayout(false);
