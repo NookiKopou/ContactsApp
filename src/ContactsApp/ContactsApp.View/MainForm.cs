@@ -73,5 +73,10 @@ namespace ContactsApp.View
             ContactForm contactForm = new ContactForm();
             contactForm.Show();
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
