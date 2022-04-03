@@ -58,9 +58,8 @@ namespace ContactsApp.Model
                 {
                     throw new ArgumentException($"Surname must be no longer than 50 letters." + $"But was {value}");
                 }
-                TextInfo myTI = new CultureInfo("en-US", false).TextInfo;
-                Console.WriteLine("\"{0}\" to titlecase: {1}", value, myTI.ToTitleCase(value));
-                _surname = value;
+                TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
+                _surname = textInfo.ToTitleCase(value);
             }
         }
 
