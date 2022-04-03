@@ -88,5 +88,10 @@ namespace ContactsApp.View
         {
 
         }
+
+        private void FindBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

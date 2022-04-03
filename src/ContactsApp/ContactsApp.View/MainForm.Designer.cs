@@ -101,6 +101,7 @@ namespace ContactsApp.View
             this.FindBox.Name = "FindBox";
             this.FindBox.Size = new System.Drawing.Size(174, 20);
             this.FindBox.TabIndex = 5;
+            this.FindBox.TextChanged += new System.EventHandler(this.FindBox_TextChanged);
             // 
             // BirthdayLabel
             // 
@@ -247,7 +248,7 @@ namespace ContactsApp.View
             // ExitToolStripMenuItem
             // 
             this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
-            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.ExitToolStripMenuItem.Text = "Exit";
             this.ExitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -264,21 +265,21 @@ namespace ContactsApp.View
             // AddContactToolStripMenuItem
             // 
             this.AddContactToolStripMenuItem.Name = "AddContactToolStripMenuItem";
-            this.AddContactToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.AddContactToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.AddContactToolStripMenuItem.Text = "Add Contact";
             this.AddContactToolStripMenuItem.Click += new System.EventHandler(this.addContactToolStripMenuItem_Click);
             // 
             // EditContactToolStripMenuItem1
             // 
             this.EditContactToolStripMenuItem1.Name = "EditContactToolStripMenuItem1";
-            this.EditContactToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.EditContactToolStripMenuItem1.Size = new System.Drawing.Size(162, 22);
             this.EditContactToolStripMenuItem1.Text = "Edit Contact";
             this.EditContactToolStripMenuItem1.Click += new System.EventHandler(this.addContactToolStripMenuItem1_Click);
             // 
             // RemoveContactToolStripMenuItem2
             // 
             this.RemoveContactToolStripMenuItem2.Name = "RemoveContactToolStripMenuItem2";
-            this.RemoveContactToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.RemoveContactToolStripMenuItem2.Size = new System.Drawing.Size(162, 22);
             this.RemoveContactToolStripMenuItem2.Text = "Remove Contact";
             this.RemoveContactToolStripMenuItem2.Click += new System.EventHandler(this.addContactToolStripMenuItem2_Click);
             // 
@@ -293,7 +294,7 @@ namespace ContactsApp.View
             // AboutToolStripMenuItem
             // 
             this.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem";
-            this.AboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.AboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.AboutToolStripMenuItem.Text = "About";
             this.AboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -364,7 +365,6 @@ namespace ContactsApp.View
             this.Controls.Add(this.FindLabel);
             this.Controls.Add(this.MainMenuStrip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.MainMenuStrip;
             this.Name = "MainForm";
             this.Text = "ContactsApp";
             this.MainMenuStrip.ResumeLayout(false);
