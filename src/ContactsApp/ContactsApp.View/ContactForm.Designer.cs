@@ -50,7 +50,7 @@ namespace ContactsApp.View
             this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(67, 76);
+            this.dateTimePicker1.Location = new System.Drawing.Point(67, 73);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(141, 20);
             this.dateTimePicker1.TabIndex = 27;
@@ -60,7 +60,7 @@ namespace ContactsApp.View
             this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox6.Location = new System.Drawing.Point(67, 154);
+            this.textBox6.Location = new System.Drawing.Point(67, 151);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(322, 20);
             this.textBox6.TabIndex = 26;
@@ -70,7 +70,7 @@ namespace ContactsApp.View
             this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox5.Location = new System.Drawing.Point(67, 128);
+            this.textBox5.Location = new System.Drawing.Point(67, 125);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(322, 20);
             this.textBox5.TabIndex = 25;
@@ -80,7 +80,7 @@ namespace ContactsApp.View
             this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox4.Location = new System.Drawing.Point(67, 102);
+            this.textBox4.Location = new System.Drawing.Point(67, 99);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(322, 20);
             this.textBox4.TabIndex = 24;
@@ -111,7 +111,7 @@ namespace ContactsApp.View
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(16, 161);
+            this.label7.Location = new System.Drawing.Point(16, 154);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(45, 13);
             this.label7.TabIndex = 21;
@@ -123,7 +123,7 @@ namespace ContactsApp.View
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(23, 131);
+            this.label6.Location = new System.Drawing.Point(23, 128);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(38, 13);
             this.label6.TabIndex = 20;
@@ -135,7 +135,7 @@ namespace ContactsApp.View
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(20, 105);
+            this.label5.Location = new System.Drawing.Point(20, 102);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 13);
             this.label5.TabIndex = 19;
@@ -147,11 +147,11 @@ namespace ContactsApp.View
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 76);
+            this.label4.Location = new System.Drawing.Point(13, 77);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 13);
+            this.label4.Size = new System.Drawing.Size(48, 13);
             this.label4.TabIndex = 18;
-            this.label4.Text = "Birthdate:";
+            this.label4.Text = "Birthday:";
             // 
             // label3
             // 
@@ -180,7 +180,7 @@ namespace ContactsApp.View
             // button1
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button1.Location = new System.Drawing.Point(238, 184);
+            this.button1.Location = new System.Drawing.Point(233, 183);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 28;
@@ -191,7 +191,7 @@ namespace ContactsApp.View
             // button2
             // 
             this.button2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button2.Location = new System.Drawing.Point(319, 184);
+            this.button2.Location = new System.Drawing.Point(314, 183);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 29;
