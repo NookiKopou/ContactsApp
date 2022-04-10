@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ContactsApp.Model
 {
-    class ProjectManager
+    public class ProjectManager
     {
     }
 }

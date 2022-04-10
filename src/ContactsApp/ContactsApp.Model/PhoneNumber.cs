@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ContactsApp.Model
 {
-    class PhoneNumber
+    public class PhoneNumber
     {
         /// <summary>
         /// Номер телефона.

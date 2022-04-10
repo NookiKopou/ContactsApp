@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ContactsApp.Model;
+
 
 namespace ContactsApp.View
 {
@@ -17,14 +19,29 @@ namespace ContactsApp.View
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void CancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void OkButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void SurnameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+            //    _surname = SurnameTextBox.Text;
+                SurnameTextBox.BackColor = Color.White;
+            }
+            catch (FormatException exception)
+            {
+                SurnameTextBox.BackColor = Color.LightPink;
+                //_surnameErrorText = "$Surname must be no longer than 50 letters."
+                //        + $"But was {SurnameTextBox.Text}"; 
+            }
         }
     }
 }

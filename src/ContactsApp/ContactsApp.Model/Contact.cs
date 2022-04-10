@@ -7,7 +7,7 @@ using System.Globalization;
 
 namespace ContactsApp.Model
 {
-    class Contact
+    public class Contact
     {
         /// <summary>
         /// Фамилия.
