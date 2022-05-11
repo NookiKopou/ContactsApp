@@ -43,8 +43,8 @@ namespace ContactsApp.View
             this.PhoneTextBox = new System.Windows.Forms.TextBox();
             this.EmailTextBox = new System.Windows.Forms.TextBox();
             this.VKTextBox = new System.Windows.Forms.TextBox();
-            this.BirthdayTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.ContactListBox = new System.Windows.Forms.ListBox();
+            this.DateOfBirthTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.ContactsListBox = new System.Windows.Forms.ListBox();
             this.MainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -199,25 +199,25 @@ namespace ContactsApp.View
             this.VKTextBox.Size = new System.Drawing.Size(334, 20);
             this.VKTextBox.TabIndex = 14;
             // 
-            // BirthdayTimePicker
+            // DateOfBirthTimePicker
             // 
-            this.BirthdayTimePicker.Enabled = false;
-            this.BirthdayTimePicker.Location = new System.Drawing.Point(290, 83);
-            this.BirthdayTimePicker.Name = "BirthdayTimePicker";
-            this.BirthdayTimePicker.Size = new System.Drawing.Size(153, 20);
-            this.BirthdayTimePicker.TabIndex = 15;
+            this.DateOfBirthTimePicker.Enabled = false;
+            this.DateOfBirthTimePicker.Location = new System.Drawing.Point(290, 83);
+            this.DateOfBirthTimePicker.Name = "DateOfBirthTimePicker";
+            this.DateOfBirthTimePicker.Size = new System.Drawing.Size(153, 20);
+            this.DateOfBirthTimePicker.TabIndex = 15;
             // 
-            // ContactListBox
+            // ContactsListBox
             // 
-            this.ContactListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.ContactsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.ContactListBox.FormattingEnabled = true;
-            this.ContactListBox.IntegralHeight = false;
-            this.ContactListBox.Location = new System.Drawing.Point(12, 53);
-            this.ContactListBox.Name = "ContactListBox";
-            this.ContactListBox.Size = new System.Drawing.Size(210, 409);
-            this.ContactListBox.TabIndex = 16;
-            this.ContactListBox.SelectedIndexChanged += new System.EventHandler(this.ContactListBox_SelectedIndexChanged);
+            this.ContactsListBox.FormattingEnabled = true;
+            this.ContactsListBox.IntegralHeight = false;
+            this.ContactsListBox.Location = new System.Drawing.Point(12, 53);
+            this.ContactsListBox.Name = "ContactsListBox";
+            this.ContactsListBox.Size = new System.Drawing.Size(210, 409);
+            this.ContactsListBox.TabIndex = 16;
+            this.ContactsListBox.SelectedIndexChanged += new System.EventHandler(this.ContactsListBox_SelectedIndexChanged);
             // 
             // MainMenuStrip
             // 
@@ -346,8 +346,8 @@ namespace ContactsApp.View
             this.Controls.Add(this.RemoveButton);
             this.Controls.Add(this.EditButton);
             this.Controls.Add(this.AddButton);
-            this.Controls.Add(this.ContactListBox);
-            this.Controls.Add(this.BirthdayTimePicker);
+            this.Controls.Add(this.ContactsListBox);
+            this.Controls.Add(this.DateOfBirthTimePicker);
             this.Controls.Add(this.VKTextBox);
             this.Controls.Add(this.EmailTextBox);
             this.Controls.Add(this.PhoneTextBox);
@@ -388,8 +388,8 @@ namespace ContactsApp.View
         private System.Windows.Forms.TextBox PhoneTextBox;
         private System.Windows.Forms.TextBox EmailTextBox;
         private System.Windows.Forms.TextBox VKTextBox;
-        private System.Windows.Forms.DateTimePicker BirthdayTimePicker;
-        private System.Windows.Forms.ListBox ContactListBox;
+        private System.Windows.Forms.DateTimePicker DateOfBirthTimePicker;
+        private System.Windows.Forms.ListBox ContactsListBox;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button EditButton;
         private System.Windows.Forms.Button RemoveButton;

@@ -6,34 +6,24 @@ using System.Threading.Tasks;
 
 namespace ContactsApp.Model
 {
+    /// <summary>
+    /// Описывает список контактов.
+    /// </summary> 
     public class Project
     {
         /// <summary>
-        /// Список контактов.
+        /// Возвращает или задает список контактов.
         /// </summary>
-        private List<string> contacts = new List<string>();
+        public List<Contact> Contacts { get; set; } = new List<Contact>();
 
         /// <summary>
-        /// Возвращает или задает номер телефона.
-        /// </summary>
-        public List<string> Contacts
-        {
-            get
-            {
-                return contacts;
-            }
-            set
-            {
-                contacts = value;
-            }
-        }
+        /// Вариант для VS 2013
+        /// </summary> 
+        /*public List<Contact> Contacts {get; set;}
 
-        /// <summary>
-        /// Создает экземпляр <see cref="Project">.
-        /// </summary>
-        public Project(List<string> contacts)
+        public Project()
         {
-            Contacts = contacts;
-        }
+            Contacts = new List<Contact>();
+        } */
     }
 }

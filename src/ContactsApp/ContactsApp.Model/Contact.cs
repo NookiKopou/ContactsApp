@@ -7,6 +7,9 @@ using System.Globalization;
 
 namespace ContactsApp.Model
 {
+    /// <summary>
+    /// Описывает контакт.
+    /// </summary> 
     public class Contact
     {
         /// <summary>
@@ -22,12 +25,12 @@ namespace ContactsApp.Model
         /// <summary>
         /// Номер телефона.
         /// </summary>
-        PhoneNumber _number;
+        private PhoneNumber _phoneNumber;
 
         /// <summary>
         /// Дата рождения.
         /// </summary>
-        private DateTime _birthday;
+        private DateTime _dateOfBirth;
 
         /// <summary>
         /// E-mail.
@@ -38,8 +41,6 @@ namespace ContactsApp.Model
         /// ID ВКонтакте.
         /// </summary>
         private string _vkID;
-
-        ///public interface ICloneable();
 
         /// <summary>
         /// Возвращает или задает фамилию.
@@ -55,7 +56,7 @@ namespace ContactsApp.Model
                 if (value.Length > 50)
                 {
                     throw new ArgumentException($"Surname must be no longer than 50 letters." 
-                        + $"But was {value}");
+                        + $"But was {value.Length} letters");
                 }
                 TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
                 _surname = textInfo.ToTitleCase(value);
@@ -76,7 +77,7 @@ namespace ContactsApp.Model
                 if (value.Length > 50)
                 {
                     throw new ArgumentException($"Name must be no longer than 50 letters." 
-                        + $"But was {value}");
+                        + $"But was {value.Length} letters");
                 }
                 TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
                 _name = textInfo.ToTitleCase(value);
@@ -86,31 +87,35 @@ namespace ContactsApp.Model
         /// <summary>
         /// Возвращает или задает номер телефона.
         /// </summary>
-        public PhoneNumber Number
+        public PhoneNumber @PhoneNumber
         {
             get
             {
-                return _number;
+                return _phoneNumber;
+            }
+            set
+            {
+                _phoneNumber = value;
             }
         }
 
         /// <summary>
         /// Возвращает или задает дату рождения.
         /// </summary>
-        public DateTime Birthday
+        public DateTime DateOfBirth
         {
             get
             {
-                return _birthday;
+                return _dateOfBirth;
             }
             set
             {
-                if (value.Year < 1900 || value.Year > DateTime.Now.Year)
+                if ((value.Year < 1900) || (value.Year > DateTime.Now.Year))
                 {
-                    throw new ArgumentException($"Number must start with 7 and contain 11 digits."
-                    + $"But was {value}");
+                    throw new ArgumentException($"Year of birth cannot be less than 1900."
+                        + "and be later than today." + $"But was {value}");
                 }
-                _birthday = value;
+                _dateOfBirth = value;
             }
         }
 
@@ -128,7 +133,7 @@ namespace ContactsApp.Model
                 if (value.Length > 50)
                 {
                     throw new ArgumentException($"Email must be no longer than 50 letters." 
-                        + $"But was {value}");
+                        + $"But was {value.Length} letters");
                 }
                 _email = value;
             }
@@ -148,7 +153,7 @@ namespace ContactsApp.Model
                 if (value.Length > 15)
                 {
                     throw new ArgumentException($"Email must be no longer than 15 letters." 
-                        + $"But was {value}");
+                        + $"But was {value.Length} letters");
                 }
                 _vkID = value;
             }
@@ -157,13 +162,16 @@ namespace ContactsApp.Model
         /// <summary>
         /// Создает экземпляр <see cref="Surname">.
         /// </summary>
-        public Contact(string surname, string name, DateTime birthday, string email, string vkID)
+        public Contact(string surname, string name, DateTime dateOfBirth, string email, 
+                        string vkID, long phoneNumber)
         {
             Surname = surname;
             Name = name;
-            Birthday = birthday;
+            DateOfBirth = dateOfBirth;
             Email = email;
             VkID = vkID;
+            PhoneNumber phone = new PhoneNumber(phoneNumber);
+            @PhoneNumber = phone;
         }
     }
 }

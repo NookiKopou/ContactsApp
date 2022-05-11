@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ContactsApp.Model
 {
+    /// <summary>
+    /// Описывает номер телефона.
+    /// </summary> 
     public class PhoneNumber
     {
         /// <summary>
@@ -24,7 +27,7 @@ namespace ContactsApp.Model
             }
             set
             {
-                if ((value > 79999999999) && (value < 70000000000))
+                if ((value < 70000000000) || (value > 79999999999))
                 {
                     throw new ArgumentException($"Number must start with 7 and contain 11 digits."
                     + $"But was {value}");
