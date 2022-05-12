@@ -40,9 +40,9 @@ namespace ContactsApp.View
             this.VKLabel = new System.Windows.Forms.Label();
             this.SurnameTextBox = new System.Windows.Forms.TextBox();
             this.NameTextBox = new System.Windows.Forms.TextBox();
-            this.PhoneTextBox = new System.Windows.Forms.TextBox();
+            this.PhoneNumberTextBox = new System.Windows.Forms.TextBox();
             this.EmailTextBox = new System.Windows.Forms.TextBox();
-            this.VKTextBox = new System.Windows.Forms.TextBox();
+            this.VKIDTextBox = new System.Windows.Forms.TextBox();
             this.DateOfBirthTimePicker = new System.Windows.Forms.DateTimePicker();
             this.ContactsListBox = new System.Windows.Forms.ListBox();
             this.MainMenuStrip = new System.Windows.Forms.MenuStrip();
@@ -169,15 +169,15 @@ namespace ContactsApp.View
             this.NameTextBox.Size = new System.Drawing.Size(334, 20);
             this.NameTextBox.TabIndex = 11;
             // 
-            // PhoneTextBox
+            // PhoneNumberTextBox
             // 
-            this.PhoneTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.PhoneNumberTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.PhoneTextBox.Location = new System.Drawing.Point(290, 109);
-            this.PhoneTextBox.Name = "PhoneTextBox";
-            this.PhoneTextBox.ReadOnly = true;
-            this.PhoneTextBox.Size = new System.Drawing.Size(334, 20);
-            this.PhoneTextBox.TabIndex = 12;
+            this.PhoneNumberTextBox.Location = new System.Drawing.Point(290, 109);
+            this.PhoneNumberTextBox.Name = "PhoneNumberTextBox";
+            this.PhoneNumberTextBox.ReadOnly = true;
+            this.PhoneNumberTextBox.Size = new System.Drawing.Size(334, 20);
+            this.PhoneNumberTextBox.TabIndex = 12;
             // 
             // EmailTextBox
             // 
@@ -189,15 +189,15 @@ namespace ContactsApp.View
             this.EmailTextBox.Size = new System.Drawing.Size(334, 20);
             this.EmailTextBox.TabIndex = 13;
             // 
-            // VKTextBox
+            // VKIDTextBox
             // 
-            this.VKTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.VKIDTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.VKTextBox.Location = new System.Drawing.Point(290, 161);
-            this.VKTextBox.Name = "VKTextBox";
-            this.VKTextBox.ReadOnly = true;
-            this.VKTextBox.Size = new System.Drawing.Size(334, 20);
-            this.VKTextBox.TabIndex = 14;
+            this.VKIDTextBox.Location = new System.Drawing.Point(290, 161);
+            this.VKIDTextBox.Name = "VKIDTextBox";
+            this.VKIDTextBox.ReadOnly = true;
+            this.VKIDTextBox.Size = new System.Drawing.Size(334, 20);
+            this.VKIDTextBox.TabIndex = 14;
             // 
             // DateOfBirthTimePicker
             // 
@@ -348,9 +348,9 @@ namespace ContactsApp.View
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.ContactsListBox);
             this.Controls.Add(this.DateOfBirthTimePicker);
-            this.Controls.Add(this.VKTextBox);
+            this.Controls.Add(this.VKIDTextBox);
             this.Controls.Add(this.EmailTextBox);
-            this.Controls.Add(this.PhoneTextBox);
+            this.Controls.Add(this.PhoneNumberTextBox);
             this.Controls.Add(this.NameTextBox);
             this.Controls.Add(this.SurnameTextBox);
             this.Controls.Add(this.VKLabel);
@@ -385,9 +385,9 @@ namespace ContactsApp.View
         private System.Windows.Forms.Label VKLabel;
         private System.Windows.Forms.TextBox SurnameTextBox;
         private System.Windows.Forms.TextBox NameTextBox;
-        private System.Windows.Forms.TextBox PhoneTextBox;
+        private System.Windows.Forms.TextBox PhoneNumberTextBox;
         private System.Windows.Forms.TextBox EmailTextBox;
-        private System.Windows.Forms.TextBox VKTextBox;
+        private System.Windows.Forms.TextBox VKIDTextBox;
         private System.Windows.Forms.DateTimePicker DateOfBirthTimePicker;
         private System.Windows.Forms.ListBox ContactsListBox;
         private System.Windows.Forms.Button AddButton;

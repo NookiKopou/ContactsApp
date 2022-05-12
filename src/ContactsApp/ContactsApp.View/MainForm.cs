@@ -14,6 +14,9 @@ namespace ContactsApp.View
 {
     public partial class MainForm : Form
     {
+        /// <summary>
+        /// Создает новый экземпляр
+        /// </summary>
         private Project _project = new Project();
 
         /// <summary>
@@ -80,7 +83,7 @@ namespace ContactsApp.View
             else
             {
                 DialogResult result = MessageBox.Show(
-                    "Do you really want to remove " + $"{_project.Contacts[index].Surname} ?",
+                    $"Do you really want to remove " + $"{_project.Contacts[index].Surname} ?",
                     "Message",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Information,
@@ -106,9 +109,9 @@ namespace ContactsApp.View
                 SurnameTextBox.Text = _project.Contacts[index].Surname;
                 NameTextBox.Text = _project.Contacts[index].Name;
                 DateOfBirthTimePicker.Value = _project.Contacts[index].DateOfBirth;
-                PhoneTextBox.Text = Convert.ToString(_project.Contacts[index].PhoneNumber.Number);
+                PhoneNumberTextBox.Text = Convert.ToString(_project.Contacts[index].PhoneNumber.Number);
                 EmailTextBox.Text = _project.Contacts[index].Email;
-                VKTextBox.Text = _project.Contacts[index].VkID;
+                VKIDTextBox.Text = _project.Contacts[index].VkID;
             }    
         }
 
@@ -117,9 +120,9 @@ namespace ContactsApp.View
             SurnameTextBox.Text = "";
             NameTextBox.Text = "";
             DateOfBirthTimePicker.Value = DateTime.Now;
-            PhoneTextBox.Text = "";
+            PhoneNumberTextBox.Text = "";
             EmailTextBox.Text = "";
-            VKTextBox.Text = "";
+            VKIDTextBox.Text = "";
         }
 
         private void ContactsListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -157,7 +160,7 @@ namespace ContactsApp.View
         private void ExitToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(
-                    "Do you really want to exit?",
+                    $"Do you really want to exit?",
                     "Message",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Information,

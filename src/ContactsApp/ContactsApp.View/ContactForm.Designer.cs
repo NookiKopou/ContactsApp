@@ -29,10 +29,10 @@ namespace ContactsApp.View
         /// </summary>
         private void InitializeComponent()
         {
-            this.BirthdayDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.VKTextBox = new System.Windows.Forms.TextBox();
+            this.DateOfBirthTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.VKIDTextBox = new System.Windows.Forms.TextBox();
             this.EmailTextBox = new System.Windows.Forms.TextBox();
-            this.PhoneTextBox = new System.Windows.Forms.TextBox();
+            this.PhoneNumberTextBox = new System.Windows.Forms.TextBox();
             this.NameTextBox = new System.Windows.Forms.TextBox();
             this.SurnameTextBox = new System.Windows.Forms.TextBox();
             this.VKLabel = new System.Windows.Forms.Label();
@@ -45,25 +45,27 @@ namespace ContactsApp.View
             this.CancelButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // BirthdayDateTimePicker
+            // DateOfBirthTimePicker
             // 
-            this.BirthdayDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.DateOfBirthTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.BirthdayDateTimePicker.Location = new System.Drawing.Point(67, 73);
-            this.BirthdayDateTimePicker.Name = "BirthdayDateTimePicker";
-            this.BirthdayDateTimePicker.Size = new System.Drawing.Size(141, 20);
-            this.BirthdayDateTimePicker.TabIndex = 27;
+            this.DateOfBirthTimePicker.Location = new System.Drawing.Point(67, 73);
+            this.DateOfBirthTimePicker.Name = "DateOfBirthTimePicker";
+            this.DateOfBirthTimePicker.Size = new System.Drawing.Size(141, 20);
+            this.DateOfBirthTimePicker.TabIndex = 27;
+            this.DateOfBirthTimePicker.ValueChanged += new System.EventHandler(this.DateOfBirthTimePicker_ValueChanged);
             // 
-            // VKTextBox
+            // VKIDTextBox
             // 
-            this.VKTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.VKIDTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.VKTextBox.Location = new System.Drawing.Point(67, 151);
-            this.VKTextBox.Name = "VKTextBox";
-            this.VKTextBox.Size = new System.Drawing.Size(322, 20);
-            this.VKTextBox.TabIndex = 26;
+            this.VKIDTextBox.Location = new System.Drawing.Point(67, 151);
+            this.VKIDTextBox.Name = "VKIDTextBox";
+            this.VKIDTextBox.Size = new System.Drawing.Size(322, 20);
+            this.VKIDTextBox.TabIndex = 26;
+            this.VKIDTextBox.TextChanged += new System.EventHandler(this.VKIDTextBox_TextChanged);
             // 
             // EmailTextBox
             // 
@@ -74,16 +76,18 @@ namespace ContactsApp.View
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.Size = new System.Drawing.Size(322, 20);
             this.EmailTextBox.TabIndex = 25;
+            this.EmailTextBox.TextChanged += new System.EventHandler(this.EmailTextBox_TextChanged);
             // 
-            // PhoneTextBox
+            // PhoneNumberTextBox
             // 
-            this.PhoneTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.PhoneNumberTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.PhoneTextBox.Location = new System.Drawing.Point(67, 99);
-            this.PhoneTextBox.Name = "PhoneTextBox";
-            this.PhoneTextBox.Size = new System.Drawing.Size(322, 20);
-            this.PhoneTextBox.TabIndex = 24;
+            this.PhoneNumberTextBox.Location = new System.Drawing.Point(67, 99);
+            this.PhoneNumberTextBox.Name = "PhoneNumberTextBox";
+            this.PhoneNumberTextBox.Size = new System.Drawing.Size(322, 20);
+            this.PhoneNumberTextBox.TabIndex = 24;
+            this.PhoneNumberTextBox.TextChanged += new System.EventHandler(this.PhoneNumberTextBox_TextChanged);
             // 
             // NameTextBox
             // 
@@ -94,6 +98,7 @@ namespace ContactsApp.View
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(322, 20);
             this.NameTextBox.TabIndex = 23;
+            this.NameTextBox.TextChanged += new System.EventHandler(this.NameTextBox_TextChanged);
             // 
             // SurnameTextBox
             // 
@@ -207,10 +212,10 @@ namespace ContactsApp.View
             this.ClientSize = new System.Drawing.Size(401, 218);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.OkButton);
-            this.Controls.Add(this.BirthdayDateTimePicker);
-            this.Controls.Add(this.VKTextBox);
+            this.Controls.Add(this.DateOfBirthTimePicker);
+            this.Controls.Add(this.VKIDTextBox);
             this.Controls.Add(this.EmailTextBox);
-            this.Controls.Add(this.PhoneTextBox);
+            this.Controls.Add(this.PhoneNumberTextBox);
             this.Controls.Add(this.NameTextBox);
             this.Controls.Add(this.SurnameTextBox);
             this.Controls.Add(this.VKLabel);
@@ -229,10 +234,10 @@ namespace ContactsApp.View
 
         #endregion
 
-        private System.Windows.Forms.DateTimePicker BirthdayDateTimePicker;
-        private System.Windows.Forms.TextBox VKTextBox;
+        private System.Windows.Forms.DateTimePicker DateOfBirthTimePicker;
+        private System.Windows.Forms.TextBox VKIDTextBox;
         private System.Windows.Forms.TextBox EmailTextBox;
-        private System.Windows.Forms.TextBox PhoneTextBox;
+        private System.Windows.Forms.TextBox PhoneNumberTextBox;
         private System.Windows.Forms.TextBox NameTextBox;
         private System.Windows.Forms.TextBox SurnameTextBox;
         private System.Windows.Forms.Label VKLabel;

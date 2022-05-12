@@ -152,7 +152,7 @@ namespace ContactsApp.Model
             {
                 if (value.Length > 15)
                 {
-                    throw new ArgumentException($"Email must be no longer than 15 letters." 
+                    throw new ArgumentException($"VK ID must be no longer than 15 letters." 
                         + $"But was {value.Length} letters");
                 }
                 _vkID = value;
