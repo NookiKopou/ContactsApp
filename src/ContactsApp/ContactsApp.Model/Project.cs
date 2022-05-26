@@ -12,12 +12,12 @@ namespace ContactsApp.Model
     public class Project
     {
         /// <summary>
-        /// Возвращает или задает список контактов.
+        /// Возвращает или задает список контактов. Вариант для VS 2019
         /// </summary>
         public List<Contact> Contacts { get; set; } = new List<Contact>();
 
         /// <summary>
-        /// Вариант для VS 2013
+        ///  Возвращает или задает список контактов. Вариант для VS 2013
         /// </summary> 
         /*public List<Contact> Contacts {get; set;}
 
@@ -25,5 +25,28 @@ namespace ContactsApp.Model
         {
             Contacts = new List<Contact>();
         } */
+
+        /// <summary>
+        /// Сортирует по алфавиту
+        /// </summary>
+        /// <param name="Contacts"></param>
+        /// <returns></returns>
+        public List<Contact> SortAlphabetically(List<Contact> contacts)
+        {
+            contacts = contacts.OrderBy(contact => contact.Surname).ToList();
+            return contacts;
+        }
+
+        /// <summary>
+        /// Ищет контакты с выбранным днем рождения
+        /// </summary>
+        /// <param name="Contacts"></param>
+        /// <param name="dateOfBirth"></param>
+        /// <returns></returns>
+        public List<Contact> SearchByDateOfBirth(List<Contact> Contacts, DateTime dateOfBirth)
+        {
+            Contacts = Contacts.Where(contact => contact.DateOfBirth == dateOfBirth).ToList();
+            return Contacts;
+        }
     }
 }

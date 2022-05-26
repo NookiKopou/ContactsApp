@@ -19,14 +19,47 @@ namespace ContactsApp.View
         private Project _project = new Project();
 
         /// <summary>
+        /// Текущий список контактов  
+        /// </summary>
+        List<Contact> _currentContacts;
+
+        /// <summary>
+        /// Ищет индекс
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        private int FindIndex(int index)
+        {
+            for (int i = 0; i < _project.Contacts.Count; i++)
+            {
+                if (_project.Contacts[i] == _currentContacts[index])
+                {
+                    index = i;
+                    break;
+                }
+            }
+            return index;
+        }
+
+        /// <summary>
+        /// Вывод на экран списка заметок по выбранной категории
+        /// </summary>
+        private void OutputBirthday()
+        {
+            DateTime dateOfBirth = DateTime.Now;
+            _currentContacts = _project.SearchByDateOfBirth(_project.Contacts, dateOfBirth);
+        }
+
+        /// <summary>
         /// Очищает все элементы списка и добавляет данные из коллекции 
         /// </summary>
         private void UpdateListBox()
         {
             ContactsListBox.Items.Clear();
-            for (int i = 0; i < _project.Contacts.Count; i++)
+            _currentContacts = _project.SortAlphabetically(_currentContacts);
+            for (int i = 0; i < _currentContacts.Count; i++)
             {
-                   ContactsListBox.Items.Add(_project.Contacts[i].Surname);
+                   ContactsListBox.Items.Add(_currentContacts[i].Surname);
             }
         }
 
@@ -56,6 +89,7 @@ namespace ContactsApp.View
             {
                 return;
             }
+            index = FindIndex(index);
             ContactForm contactForm = new ContactForm();
             contactForm.Contact = _project.Contacts[index]; 
             contactForm.ShowDialog();
@@ -101,7 +135,6 @@ namespace ContactsApp.View
             {
                 return;
             }
-
             var path = _project.Contacts[index];
 
             SurnameTextBox.Text = path.Surname;
