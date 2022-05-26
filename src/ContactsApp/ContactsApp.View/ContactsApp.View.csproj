@@ -115,5 +115,8 @@
   <ItemGroup>
     <None Include="Resources\icons8-вычитание-40.png" />
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

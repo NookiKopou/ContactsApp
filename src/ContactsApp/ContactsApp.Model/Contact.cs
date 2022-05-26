@@ -10,7 +10,7 @@ namespace ContactsApp.Model
     /// <summary>
     /// Описывает контакт.
     /// </summary> 
-    public class Contact
+    public class Contact: ICloneable
     {
         /// <summary>
         /// Фамилия.
@@ -25,12 +25,12 @@ namespace ContactsApp.Model
         /// <summary>
         /// Номер телефона.
         /// </summary>
-        private PhoneNumber _phoneNumber;
+        private PhoneNumber _phoneNumber = new PhoneNumber();
 
         /// <summary>
         /// Дата рождения.
         /// </summary>
-        private DateTime _dateOfBirth;
+        private DateTime _dateOfBirth = DateTime.Now;
 
         /// <summary>
         /// E-mail.
@@ -172,6 +172,11 @@ namespace ContactsApp.Model
             VkID = vkID;
             PhoneNumber phone = new PhoneNumber(phoneNumber);
             @PhoneNumber = phone;
+        }
+
+        public object Clone()
+        {
+            return new Contact(Surname, Name, DateOfBirth, Email, VkID, _phoneNumber.Number);
         }
     }
 }
