@@ -55,8 +55,8 @@ namespace ContactsApp.Model
             {
                 if (value.Length > 50)
                 {
-                    throw new ArgumentException($"Surname must be no longer than 50 letters." 
-                        + $"But was {value.Length} letters");
+                    throw new ArgumentException($"Surname must be no longer than 50 letters. " 
+                        + $"But was {value.Length} letters.\n\n");
                 }
                 TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
                 _surname = textInfo.ToTitleCase(value);
@@ -76,8 +76,8 @@ namespace ContactsApp.Model
             {
                 if (value.Length > 50)
                 {
-                    throw new ArgumentException($"Name must be no longer than 50 letters." 
-                        + $"But was {value.Length} letters");
+                    throw new ArgumentException($"Name must be no longer than 50 letters. " 
+                        + $"But was {value.Length} letters.\n\n");
                 }
                 TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
                 _name = textInfo.ToTitleCase(value);
@@ -112,8 +112,8 @@ namespace ContactsApp.Model
             {
                 if ((value.Year < 1900) || (value.Year > DateTime.Now.Year))
                 {
-                    throw new ArgumentException($"Year of birth cannot be less than 1900."
-                        + "and be later than today." + $"But was {value}");
+                    throw new ArgumentException($"Year of birth cannot be less than 1900 "
+                        + "and be later than today. " + $"But was {value.Day}:{value.Month}:{value.Year}.\n\n");
                 }
                 _dateOfBirth = value;
             }
@@ -132,8 +132,8 @@ namespace ContactsApp.Model
             {
                 if (value.Length > 50)
                 {
-                    throw new ArgumentException($"Email must be no longer than 50 letters." 
-                        + $"But was {value.Length} letters");
+                    throw new ArgumentException($"Email must be no longer than 50 letters. " 
+                        + $"But was {value.Length} letters.\n\n");
                 }
                 _email = value;
             }
@@ -152,8 +152,8 @@ namespace ContactsApp.Model
             {
                 if (value.Length > 15)
                 {
-                    throw new ArgumentException($"VK ID must be no longer than 15 letters." 
-                        + $"But was {value.Length} letters");
+                    throw new ArgumentException($"VK ID must be no longer than 15 letters. " 
+                        + $"But was {value.Length} letters.\n\n");
                 }
                 _vkID = value;
             }
@@ -174,6 +174,17 @@ namespace ContactsApp.Model
             @PhoneNumber = phone;
         }
 
+        /// <summary>
+        /// Создает пустой экземпляр
+        /// </summary>
+        public Contact()
+        {
+        }
+
+        /// <summary>
+        /// Глубокое копирование заметки
+        /// </summary>
+        /// <returns></returns>
         public object Clone()
         {
             return new Contact(Surname, Name, DateOfBirth, Email, VkID, _phoneNumber.Number);
