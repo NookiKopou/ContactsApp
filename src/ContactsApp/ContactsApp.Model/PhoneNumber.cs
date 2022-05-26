@@ -29,8 +29,8 @@ namespace ContactsApp.Model
             {
                 if ((value < 70000000000) || (value > 79999999999))
                 {
-                    throw new ArgumentException($"Number must start with 7 and contain 11 digits."
-                    + $"But was {value}");
+                    throw new ArgumentException($"Number must start with 7 and contain 11 digits. "
+                    + $"But was {value}.\n\n");
                 }
                 _number = value;
             }
@@ -42,6 +42,13 @@ namespace ContactsApp.Model
         public PhoneNumber(long number)
         {
             Number = number;
+        }
+
+        /// <summary>
+        /// Создает пустой экземпляр
+        /// </summary>
+        public PhoneNumber()
+        {         
         }
     }
 }

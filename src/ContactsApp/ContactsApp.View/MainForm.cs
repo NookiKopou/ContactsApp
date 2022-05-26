@@ -1,5 +1,4 @@
-﻿//using Microsoft.Build.Evaluation;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -36,18 +35,113 @@ namespace ContactsApp.View
         /// </summary>
         private void AddContact()
         {
+            ContactForm contactForm = new ContactForm();
+            contactForm.Contact = null;
+            contactForm.ShowDialog();
+            if (contactForm.Contact != null)
+            {
+                _project.Contacts.Add(contactForm.Contact);
+                UpdateListBox();
+                ContactsListBox.SelectedIndex = 0;
+            }
+        }
+
+        /// <summary>
+        /// Редактирует существующий контакт
+        /// </summary>
+        /// <param name="index"></param>
+        private void EditContact(int index)
+        {
+            if (index == -1)
+            {
+                return;
+            }
+            ContactForm contactForm = new ContactForm();
+            contactForm.Contact = _project.Contacts[index]; 
+            contactForm.ShowDialog();
+            if (contactForm.Contact != null)
+            {
+                _project.Contacts[index] = contactForm.Contact;
+            }
+        }
+
+        /// <summary>
+        /// Удаляет контакт
+        /// </summary>
+        /// <param name="index"></param>
+        private void RemoveContact(int index)
+        {
+            //Если ни один контакт не выбран, ничего не происходит
+            if (index == -1)
+            {
+                return;
+            }
+
+            DialogResult result = MessageBox.Show(
+                $"Do you really want to remove " + $"{_project.Contacts[index].Surname} ?",
+                "Message",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Information,
+                MessageBoxDefaultButton.Button1);
+
+            if (result == DialogResult.Yes)
+            {
+                _project.Contacts.RemoveAt(index);
+                ClearSelectedContact();
+            }         
+        }
+
+        /// <summary>
+        /// Получает текущий объект и заполняет данные на правой панели главного окна
+        /// </summary>
+        /// <param name="index"></param>
+        private void UpdateSelectedContact(int index)
+        {
+            if (index == -1)
+            {
+                return;
+            }
+
+            var path = _project.Contacts[index];
+
+            SurnameTextBox.Text = path.Surname;
+            NameTextBox.Text = path.Name;
+            DateOfBirthTimePicker.Value = path.DateOfBirth;
+            PhoneNumberTextBox.Text = Convert.ToString(path.PhoneNumber.Number);
+            EmailTextBox.Text = path.Email;
+            VKIDTextBox.Text = path.VkID; 
+        }
+
+        /// <summary>
+        /// Очищает все элементы управления на правой панели главного окна
+        /// </summary>
+        private void ClearSelectedContact()
+        {
+            SurnameTextBox.Text = "";
+            NameTextBox.Text = "";
+            DateOfBirthTimePicker.Value = DateTime.Now;
+            PhoneNumberTextBox.Text = "";
+            EmailTextBox.Text = "";
+            VKIDTextBox.Text = "";
+        }
+
+        /// <summary>
+        /// Создает рандомный контакт
+        /// </summary>
+        private void AddRandomContact()
+        {
             //Создает объект для рандомайзера
-            Random r = new Random();
+            Random rand = new Random();
 
             string[] arrSurname = { "Orlov", "Preobrazhensky", "Nikitin", "Golubev", "Pasternak",
                 "Zaitsev", "Vinogradov", "Belyaev", "Agapov", "Antonov" };
 
-            string[] arrName = { "Artyom", "Aleksandr", "Roman", "Yevgeny", "Ivan", 
+            string[] arrName = { "Artyom", "Aleksandr", "Roman", "Yevgeny", "Ivan",
                 "Denis",  "Alexey", "Dmitry", "Danyl", "Oleg" };
 
             //Создает объекты формата Year.Month.Day
-            DateTime date = new DateTime(r.Next(1900, DateTime.Now.Year), r.Next(1, 12),
-                r.Next(1, 31));
+            DateTime date = new DateTime(rand.Next(1900, DateTime.Now.Year), rand.Next(1, 12),
+                rand.Next(1, 31));
 
             string[] arrEmail = { "o@outlook.com", "hr6zdl@yandex.ru", "kaft93x@outlook.com",
                 "dcu@yandex.ru", "19dn@outlook.com", "pa5h@mail.ru", "281av0@gmail.com",
@@ -61,86 +155,38 @@ namespace ContactsApp.View
 
             //Создает случайную комбинацию контактов и добавляет в _project
             _project.Contacts.Add(new Contact(
-                arrSurname[r.Next(0, arrSurname.Length - 1)],
-                arrName[r.Next(0, arrSurname.Length - 1)],
+                arrSurname[rand.Next(0, arrSurname.Length - 1)],
+                arrName[rand.Next(0, arrSurname.Length - 1)],
                 date,
-                arrEmail[r.Next(0, arrSurname.Length - 1)],
-                arrVkID[r.Next(0, arrSurname.Length - 1)],
-                arrNumber[r.Next(0, arrSurname.Length - 1)]));
-        }
-
-        /// <summary>
-        /// Удаляет контакт
-        /// </summary>
-        /// <param name="index"></param>
-        private void RemoveContact(int index)
-        {
-            //Если ни один контакт не выбран, ничего не происходит
-            if (index == -1)
-            {
-
-            }
-            else
-            {
-                DialogResult result = MessageBox.Show(
-                    $"Do you really want to remove " + $"{_project.Contacts[index].Surname} ?",
-                    "Message",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Information,
-                    MessageBoxDefaultButton.Button1,
-                    MessageBoxOptions.DefaultDesktopOnly);
-
-                if (result == DialogResult.Yes)
-                {
-                    ContactsListBox.Items.RemoveAt(index);
-                    _project.Contacts.RemoveAt(index);
-                }
-            }         
-        }
-
-        private void UpdateSelectedContact(int index)
-        {
-            if (index == -1)
-            {
-                ClearSelectedContact(ContactsListBox.SelectedIndex);
-            }
-            else
-            {
-                SurnameTextBox.Text = _project.Contacts[index].Surname;
-                NameTextBox.Text = _project.Contacts[index].Name;
-                DateOfBirthTimePicker.Value = _project.Contacts[index].DateOfBirth;
-                PhoneNumberTextBox.Text = Convert.ToString(_project.Contacts[index].PhoneNumber.Number);
-                EmailTextBox.Text = _project.Contacts[index].Email;
-                VKIDTextBox.Text = _project.Contacts[index].VkID;
-            }    
-        }
-
-        private void ClearSelectedContact(int index)
-        {
-            SurnameTextBox.Text = "";
-            NameTextBox.Text = "";
-            DateOfBirthTimePicker.Value = DateTime.Now;
-            PhoneNumberTextBox.Text = "";
-            EmailTextBox.Text = "";
-            VKIDTextBox.Text = "";
+                arrEmail[rand.Next(0, arrSurname.Length - 1)],
+                arrVkID[rand.Next(0, arrSurname.Length - 1)],
+                arrNumber[rand.Next(0, arrSurname.Length - 1)]));
         }
 
         private void ContactsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (ContactsListBox.SelectedIndex == -1)
+            {
+                ClearSelectedContact();
+                return;
+            }
             UpdateSelectedContact(ContactsListBox.SelectedIndex);
+        }
+
+        private void addRandomContactToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddRandomContact();
+            UpdateListBox();
         }
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            //ContactForm contactForm = new ContactForm();
-            //contactForm.Show();
             AddContact();
             UpdateListBox();
         }
+
         private void AddContactToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            ContactForm contactForm = new ContactForm();
-            contactForm.Show();
             AddContact();
             UpdateListBox();
         }
@@ -164,8 +210,7 @@ namespace ContactsApp.View
                     "Message",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Information,
-                    MessageBoxDefaultButton.Button1,
-                    MessageBoxOptions.DefaultDesktopOnly);
+                    MessageBoxDefaultButton.Button1);
 
             if (result == DialogResult.Yes)
             {
@@ -175,14 +220,20 @@ namespace ContactsApp.View
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            ContactForm contactForm = new ContactForm();
-            contactForm.Show();
+            int index = ContactsListBox.SelectedIndex;
+            EditContact(index);
+            UpdateSelectedContact(index);
+            UpdateListBox();
+            ContactsListBox.SelectedIndex = index;
         }
 
         private void EditContactToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            ContactForm contactForm = new ContactForm();
-            contactForm.Show();
+            int index = ContactsListBox.SelectedIndex;
+            EditContact(index);
+            UpdateSelectedContact(index);
+            UpdateListBox();
+            ContactsListBox.SelectedIndex = index;
         }
 
         private void AboutToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -191,21 +242,11 @@ namespace ContactsApp.View
             aboutForm.Show();
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FindBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         public MainForm()
         {
             InitializeComponent();
+            ClearSelectedContact();
         }
-
     }
 }
 

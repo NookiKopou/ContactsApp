@@ -19,24 +19,31 @@ namespace ContactsApp.View
         /// </summary>
         private string _surnameError, _nameError, _dateOfBirthError,
             _phoneNumberError, _emailError, _vkIDError;
+        private readonly Color ErrorColor = Color.LightPink;
+        private readonly Color OkColor = Color.White;
+        private string _error = "";
 
         /// <summary>
-        /// Создает новый экземпляр и заполняет его данными
+        /// Создает новый экземпляр
         /// </summary>
-        private Contact _contact = new Contact("Orlov", "Artyom", new DateTime(2002, 3, 8),
-            "o@outlook.com", "1w96e3", 76896849592);
+        private Contact _contact;
+
+        /// <summary>
+        /// Создает копию экземпляра (создано для правильной работы CancelButton)
+        /// </summary>
+        private Contact _contactCopy;
 
         /// <summary>
         /// Выводит данные на форму
         /// </summary>
         private void UpdateForm()
         {
-            SurnameTextBox.Text = _contact.Surname;
-            NameTextBox.Text = _contact.Name;
-            DateOfBirthTimePicker.Value = _contact.DateOfBirth;
-            PhoneNumberTextBox.Text = Convert.ToString(_contact.PhoneNumber.Number);
-            EmailTextBox.Text = _contact.Email;
-            VKIDTextBox.Text = _contact.VkID;
+            SurnameTextBox.Text = _contactCopy.Surname;
+            NameTextBox.Text = _contactCopy.Name;
+            DateOfBirthTimePicker.Value = _contactCopy.DateOfBirth;
+            PhoneNumberTextBox.Text = Convert.ToString(_contactCopy.PhoneNumber.Number);
+            EmailTextBox.Text = _contactCopy.Email;
+            VKIDTextBox.Text = _contactCopy.VkID;
         }
 
         /// <summary>
@@ -47,13 +54,12 @@ namespace ContactsApp.View
             try
             {
                 _surnameError = String.Empty;
-                _contact.Surname = SurnameTextBox.Text;
-                SurnameTextBox.BackColor = Color.White;
-
+                _contactCopy.Surname = SurnameTextBox.Text;
+                SurnameTextBox.BackColor = OkColor;
             }
             catch (ArgumentException exception)
             {
-                SurnameTextBox.BackColor = Color.LightPink;
+                SurnameTextBox.BackColor = ErrorColor;
                 _surnameError = exception.Message;
             }           
         }
@@ -66,13 +72,12 @@ namespace ContactsApp.View
             try
             {
                 _nameError = String.Empty;
-                _contact.Name = NameTextBox.Text;
-                NameTextBox.BackColor = Color.White;
-
+                _contactCopy.Name = NameTextBox.Text;
+                NameTextBox.BackColor = OkColor;
             }
             catch (ArgumentException exception)
             {
-                NameTextBox.BackColor = Color.LightPink;
+                NameTextBox.BackColor = ErrorColor;
                 _nameError = exception.Message;
             }
         }
@@ -85,13 +90,12 @@ namespace ContactsApp.View
             try
             {
                 _dateOfBirthError = String.Empty;
-                _contact.DateOfBirth = DateOfBirthTimePicker.Value;
-                DateOfBirthTimePicker.BackColor = Color.White;
-
+                _contactCopy.DateOfBirth = DateOfBirthTimePicker.Value;
+                DateOfBirthTimePicker.BackColor = OkColor;
             }
             catch (ArgumentException exception)
             {
-                DateOfBirthTimePicker.BackColor = Color.LightPink;
+                DateOfBirthTimePicker.BackColor = ErrorColor;
                 _dateOfBirthError = exception.Message;
             }
         }
@@ -104,13 +108,18 @@ namespace ContactsApp.View
             try
             {
                 _phoneNumberError = String.Empty;
-                _contact.PhoneNumber.Number = long.Parse(PhoneNumberTextBox.Text);
-                PhoneNumberTextBox.BackColor = Color.White;
-
+                if (PhoneNumberTextBox.Text == null)
+                {
+                }
+                else
+                {
+                    _contactCopy.PhoneNumber.Number = long.Parse(PhoneNumberTextBox.Text);
+                }              
+                PhoneNumberTextBox.BackColor = OkColor;
             }
             catch (ArgumentException exception)
             {
-                PhoneNumberTextBox.BackColor = Color.LightPink;
+                PhoneNumberTextBox.BackColor = ErrorColor;
                 _phoneNumberError = exception.Message;
             }
         }
@@ -123,13 +132,12 @@ namespace ContactsApp.View
             try
             {
                 _emailError = String.Empty;
-                _contact.Email = EmailTextBox.Text;
-                EmailTextBox.BackColor = Color.White;
-
+                _contactCopy.Email = EmailTextBox.Text;
+                EmailTextBox.BackColor = OkColor;
             }
             catch (ArgumentException exception)
             {
-                EmailTextBox.BackColor = Color.LightPink;
+                EmailTextBox.BackColor = ErrorColor;
                 _emailError = exception.Message;
             }
         }
@@ -142,13 +150,12 @@ namespace ContactsApp.View
             try
             {
                 _vkIDError = String.Empty;
-                _contact.VkID = VKIDTextBox.Text;
-                VKIDTextBox.BackColor = Color.White;
-
+                _contactCopy.VkID = VKIDTextBox.Text;
+                VKIDTextBox.BackColor = OkColor;
             }
             catch (ArgumentException exception)
             {
-                VKIDTextBox.BackColor = Color.LightPink;
+                VKIDTextBox.BackColor = ErrorColor;
                 _vkIDError = exception.Message;
             }
         }
@@ -167,40 +174,32 @@ namespace ContactsApp.View
             {
                 if (_surnameError != "")
                 {
-                    MessageBox.Show($"Surname must be no longer than 50 letters. "
-                        + $"But was {SurnameTextBox.TextLength} letters",
-                        "Error");
+                    _error += _surnameError;
                 }
                 if (_nameError != "")
                 {
-                    MessageBox.Show($"Name must be no longer than 50 letters. "
-                        + $"But was {NameTextBox.TextLength} letters",
-                        "Error");
+                    _error += _nameError;
                 }
                 if (_dateOfBirthError != "")
                 {
-                    MessageBox.Show($"Year of birth cannot be less than 1900 "
-                        + "and be later than today. " + $"But was {DateOfBirthTimePicker.Text}",
-                        "Error");
+                    _error += _dateOfBirthError;
                 }
                 if (_phoneNumberError != "")
                 {
-                    MessageBox.Show($"Number must start with 7 and contain 11 digits. "
-                        + $"But was {PhoneNumberTextBox.Text}",
-                        "Error");                 
+                    _error += _phoneNumberError;
                 }
                 if (_emailError != "")
                 {
-                    MessageBox.Show($"Email must be no longer than 50 letters. "
-                        + $"But was {EmailTextBox.TextLength} letters",
-                        "Error");
+                    _error += _emailError;
                 }
                 if (_vkIDError != "")
                 {
-                    MessageBox.Show($"VK ID must be no longer than 15 letters. "
-                        + $"But was {VKIDTextBox.TextLength} letters",
-                        "Error");
+                    _error += _vkIDError;
                 }
+                MessageBox.Show(_error, "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                _error = "";
                 return false;
             }
         }
@@ -210,32 +209,55 @@ namespace ContactsApp.View
         /// </summary>
         private void UpdateContact()
         {
-            _contact.Surname = SurnameTextBox.Text;
-            _contact.Name = NameTextBox.Text;
-            _contact.DateOfBirth = DateOfBirthTimePicker.Value;
-            _contact.PhoneNumber.Number = long.Parse(PhoneNumberTextBox.Text);
-            _contact.Email = EmailTextBox.Text;
-            _contact.VkID = VKIDTextBox.Text;
+            _contactCopy.Surname = SurnameTextBox.Text;
+            _contactCopy.Name = NameTextBox.Text;
+            _contactCopy.DateOfBirth = DateOfBirthTimePicker.Value;
+            _contactCopy.PhoneNumber.Number = long.Parse(PhoneNumberTextBox.Text);
+            _contactCopy.Email = EmailTextBox.Text;
+            _contactCopy.VkID = VKIDTextBox.Text;
+        }
+
+
+        /// <summary>
+        /// Создает копию контакта
+        /// </summary>
+        public Contact Contact
+        {
+            get
+            {
+                return _contact;
+            }
+            set
+            {
+                _contact = value;
+                if (_contact != null)
+                {
+                    _contactCopy = (Contact)_contact.Clone();
+                }
+                else
+                {
+                    _contactCopy = new Contact();
+                }
+                UpdateForm();
+            }
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult = DialogResult.Cancel;
         }
 
         private void OkButton_Click(object sender, EventArgs e)
-        {
-            if (CheckFormOnErrors() == true)
-            {
-                UpdateContact();
-                this.Close();
-            }
+        {           
+            CheckFormOnErrors();
+            UpdateContact();
+            _contact = _contactCopy;
+            DialogResult = DialogResult.OK;
         }
 
         public ContactForm()
         {
             InitializeComponent();
-            UpdateForm();
         }
     }
 }
