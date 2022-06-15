@@ -24,43 +24,43 @@ namespace ContactsApp.View
         List<Contact> _currentContacts;
 
         /// <summary>
-        /// Ищет индекс
-        /// </summary>
-        /// <param name="index"></param>
-        /// <returns></returns>
-        private int FindIndex(int index)
-        {
-            for (int i = 0; i < _project.Contacts.Count; i++)
-            {
-                if (_project.Contacts[i] == _currentContacts[index])
-                {
-                    index = i;
-                    break;
-                }
-            }
-            return index;
-        }
+        /// Текущий список контактов с днем рождения.
+        /// </summary> 
+        List<Contact> _currentContactDateOfBirth;
 
         /// <summary>
         /// Вывод на экран списка заметок по выбранной категории
         /// </summary>
         private void OutputBirthday()
         {
-            DateTime dateOfBirth = DateTime.Now;
-            _currentContacts = _project.SearchByDateOfBirth(_project.Contacts, dateOfBirth);
+            _currentContactDateOfBirth = _project.SearchByDateOfBirth(_currentContacts);
+            if (_currentContactDateOfBirth.Count > 0)
+            {
+                DateOfBirthPanel.Visible = true;
+            }
+            else
+            {
+                DateOfBirthPanel.Visible = false;
+            }
+            for (int i = 0; i < _currentContactDateOfBirth.Count; i++)
+            {
+                BirthdaysLabel.Text = BirthdaysLabel.Text + _currentContactDateOfBirth[i].Surname + ", " ;
+            }
         }
 
         /// <summary>
         /// Очищает все элементы списка и добавляет данные из коллекции 
         /// </summary>
         private void UpdateListBox()
-        {
+        {           
+            _currentContacts = _project.SortAlphabetically(_project.Contacts);
             ContactsListBox.Items.Clear();
-            _currentContacts = _project.SortAlphabetically(_currentContacts);
+            BirthdaysLabel.Text = "";
             for (int i = 0; i < _currentContacts.Count; i++)
             {
                    ContactsListBox.Items.Add(_currentContacts[i].Surname);
             }
+            OutputBirthday();
         }
 
         /// <summary>
@@ -75,7 +75,6 @@ namespace ContactsApp.View
             {
                 _project.Contacts.Add(contactForm.Contact);
                 UpdateListBox();
-                ContactsListBox.SelectedIndex = 0;
             }
         }
 
@@ -89,13 +88,14 @@ namespace ContactsApp.View
             {
                 return;
             }
-            index = FindIndex(index);
             ContactForm contactForm = new ContactForm();
-            contactForm.Contact = _project.Contacts[index]; 
+            contactForm.Contact = _currentContacts[index]; 
             contactForm.ShowDialog();
             if (contactForm.Contact != null)
             {
-                _project.Contacts[index] = contactForm.Contact;
+                _currentContacts[index] = contactForm.Contact;
+                _project.Contacts = _currentContacts;
+                UpdateListBox();
             }
         }
 
@@ -112,7 +112,7 @@ namespace ContactsApp.View
             }
 
             DialogResult result = MessageBox.Show(
-                $"Do you really want to remove " + $"{_project.Contacts[index].Surname} ?",
+                "Do you really want to remove " + _project.Contacts[index].Surname,
                 "Message",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Information,
@@ -120,8 +120,10 @@ namespace ContactsApp.View
 
             if (result == DialogResult.Yes)
             {
-                _project.Contacts.RemoveAt(index);
-                ClearSelectedContact();
+                ContactsListBox.Items.RemoveAt(index);
+                _currentContacts.RemoveAt(index);
+                _project.Contacts = _currentContacts;
+                UpdateListBox();
             }         
         }
 
@@ -133,16 +135,21 @@ namespace ContactsApp.View
         {
             if (index == -1)
             {
-                return;
+                SurnameTextBox.Text = "";
+                NameTextBox.Text = "";
+                DateOfBirthTimePicker.Value = DateTime.Now;
+                PhoneNumberTextBox.Text = "";
+                EmailTextBox.Text = "";
+                VKIDTextBox.Text = "";
             }
-            var path = _project.Contacts[index];
+            var path = _currentContacts[index];
 
             SurnameTextBox.Text = path.Surname;
             NameTextBox.Text = path.Name;
             DateOfBirthTimePicker.Value = path.DateOfBirth;
             PhoneNumberTextBox.Text = Convert.ToString(path.PhoneNumber.Number);
             EmailTextBox.Text = path.Email;
-            VKIDTextBox.Text = path.VkID; 
+            VKIDTextBox.Text = path.VkID;
         }
 
         /// <summary>
@@ -239,7 +246,7 @@ namespace ContactsApp.View
         private void ExitToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(
-                    $"Do you really want to exit?",
+                    "Do you really want to exit?",
                     "Message",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Information,

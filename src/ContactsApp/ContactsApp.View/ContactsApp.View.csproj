@@ -118,5 +118,11 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-exclamation-131693.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premium-icon-exclamation-mark-4194648.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

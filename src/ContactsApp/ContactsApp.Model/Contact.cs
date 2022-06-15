@@ -55,8 +55,8 @@ namespace ContactsApp.Model
             {
                 if (value.Length > 50)
                 {
-                    throw new ArgumentException($"Surname must be no longer than 50 letters. " 
-                        + $"But was {value.Length} letters.\n\n");
+                    throw new ArgumentException("Surname must be no longer than 50 letters. " 
+                        + "But was " + value.Length + " letters.\n");
                 }
                 TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
                 _surname = textInfo.ToTitleCase(value);
@@ -76,8 +76,8 @@ namespace ContactsApp.Model
             {
                 if (value.Length > 50)
                 {
-                    throw new ArgumentException($"Name must be no longer than 50 letters. " 
-                        + $"But was {value.Length} letters.\n\n");
+                    throw new ArgumentException("Name must be no longer than 50 letters. " 
+                        + "But was " + value.Length + " letters.\n");
                 }
                 TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
                 _name = textInfo.ToTitleCase(value);
@@ -112,8 +112,9 @@ namespace ContactsApp.Model
             {
                 if ((value.Year < 1900) || (value.Year > DateTime.Now.Year))
                 {
-                    throw new ArgumentException($"Year of birth cannot be less than 1900 "
-                        + "and be later than today. " + $"But was {value.Day}:{value.Month}:{value.Year}.\n\n");
+                    throw new ArgumentException("Year of birth cannot be less than 1900 "
+                        + "and be later than today. " + "But was " + value.Day + ":" 
+                        + value.Month + ":" + value.Year + ".\n");
                 }
                 _dateOfBirth = value;
             }
@@ -132,8 +133,8 @@ namespace ContactsApp.Model
             {
                 if (value.Length > 50)
                 {
-                    throw new ArgumentException($"Email must be no longer than 50 letters. " 
-                        + $"But was {value.Length} letters.\n\n");
+                    throw new ArgumentException("Email must be no longer than 50 letters. " 
+                        + "But was " + value.Length + " letters.\n");
                 }
                 _email = value;
             }
@@ -152,8 +153,8 @@ namespace ContactsApp.Model
             {
                 if (value.Length > 15)
                 {
-                    throw new ArgumentException($"VK ID must be no longer than 15 letters. " 
-                        + $"But was {value.Length} letters.\n\n");
+                    throw new ArgumentException("VK ID must be no longer than 15 letters. " 
+                        + "But was " + value.Length + " letters.\n");
                 }
                 _vkID = value;
             }

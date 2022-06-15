@@ -63,6 +63,16 @@ namespace ContactsApp.View.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap free_icon_exclamation_131693 {
+            get {
+                object obj = ResourceManager.GetObject("free-icon-exclamation-131693", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_вычитание_40 {
             get {
                 object obj = ResourceManager.GetObject("icons8-вычитание-40", resourceCulture);
@@ -96,6 +106,16 @@ namespace ContactsApp.View.Properties {
         internal static System.Drawing.Bitmap icons8_сложение_40 {
             get {
                 object obj = ResourceManager.GetObject("icons8-сложение-40", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap premium_icon_exclamation_mark_4194648 {
+            get {
+                object obj = ResourceManager.GetObject("premium-icon-exclamation-mark-4194648", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

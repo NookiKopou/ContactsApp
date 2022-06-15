@@ -15,19 +15,45 @@ namespace ContactsApp.View
     public partial class ContactForm : Form
     {
         /// <summary>
-        /// Объявление переменных
+        /// Ошибка фамилии
         /// </summary>
-        private string _surnameError, _nameError, _dateOfBirthError,
-            _phoneNumberError, _emailError, _vkIDError;
+        private string _surnameError;
+        /// <summary>
+        /// Ошибка имени
+        /// </summary>
+        private string _nameError;
+        /// <summary>
+        /// Ошибка даты рождения
+        /// </summary>
+        private string _dateOfBirthError;
+        /// <summary>
+        /// Ошибка номера телефона
+        /// </summary>
+        private string _phoneNumberError;
+        /// <summary>
+        /// Ошибка e-mail`а
+        /// </summary>
+        private string _emailError;
+        /// <summary>
+        /// Ошибка VK ID
+        /// </summary>
+        private string _vkIDError;
+        /// <summary>
+        /// Цвет поля при ошибке
+        /// </summary>
         private readonly Color ErrorColor = Color.LightPink;
+        /// <summary>
+        /// Цвет поля при корректных данных
+        /// </summary>
         private readonly Color OkColor = Color.White;
+        /// <summary>
+        /// Общая ошибка
+        /// </summary>
         private string _error = "";
-
         /// <summary>
         /// Создает новый экземпляр
         /// </summary>
         private Contact _contact;
-
         /// <summary>
         /// Создает копию экземпляра (создано для правильной работы CancelButton)
         /// </summary>
@@ -41,7 +67,14 @@ namespace ContactsApp.View
             SurnameTextBox.Text = _contactCopy.Surname;
             NameTextBox.Text = _contactCopy.Name;
             DateOfBirthTimePicker.Value = _contactCopy.DateOfBirth;
-            PhoneNumberTextBox.Text = Convert.ToString(_contactCopy.PhoneNumber.Number);
+            if (SurnameTextBox.Text == "")
+            {
+                PhoneNumberTextBox.Text = "";
+            }
+            else
+            {
+                PhoneNumberTextBox.Text = Convert.ToString(_contactCopy.PhoneNumber.Number);
+            }
             EmailTextBox.Text = _contactCopy.Email;
             VKIDTextBox.Text = _contactCopy.VkID;
         }
@@ -110,11 +143,9 @@ namespace ContactsApp.View
                 _phoneNumberError = String.Empty;
                 if (PhoneNumberTextBox.Text == null)
                 {
+                    return;
                 }
-                else
-                {
-                    _contactCopy.PhoneNumber.Number = long.Parse(PhoneNumberTextBox.Text);
-                }              
+                    _contactCopy.PhoneNumber.Number = long.Parse(PhoneNumberTextBox.Text);           
                 PhoneNumberTextBox.BackColor = OkColor;
             }
             catch (ArgumentException exception)
@@ -249,10 +280,12 @@ namespace ContactsApp.View
 
         private void OkButton_Click(object sender, EventArgs e)
         {           
-            CheckFormOnErrors();
-            UpdateContact();
-            _contact = _contactCopy;
-            DialogResult = DialogResult.OK;
+            if (CheckFormOnErrors())
+            {
+                UpdateContact();
+                _contact = _contactCopy;
+                DialogResult = DialogResult.OK;
+            }
         }
 
         public ContactForm()
