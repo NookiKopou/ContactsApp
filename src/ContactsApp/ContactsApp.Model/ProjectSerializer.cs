@@ -25,11 +25,11 @@ namespace ContactsApp.Model
         /// <param name="project"></param>
         public void SaveToFile(Project project) 
         {
-            if (!(Directory.Exists(GetFolderPath(SpecialFolder.ApplicationData)
-            + "\\Zhdanova\\ContactsApp")))
+            var way = (GetFolderPath(SpecialFolder.ApplicationData) + "\\Zhdanova\\ContactsApp");
+
+            if (!(Directory.Exists(way)))
             {
-                Directory.CreateDirectory(GetFolderPath(SpecialFolder.ApplicationData)
-                + "\\Zhdanova\\ContactsApp");
+                Directory.CreateDirectory(way);
                 if (!File.Exists(FileName))
                 {
                     File.Create(FileName);
@@ -53,12 +53,11 @@ namespace ContactsApp.Model
         /// <returns></returns>
         public Project LoadFromFile()
         {
-        Project project = null;
-            if (!(Directory.Exists(GetFolderPath(SpecialFolder.ApplicationData)
-            + "\\Zhdanova\\ContactsApp")))
+            var way = (GetFolderPath(SpecialFolder.ApplicationData) + "\\Zhdanova\\ContactsApp");
+            Project project = null;
+            if (!(Directory.Exists(way)))
             {
-                Directory.CreateDirectory(GetFolderPath(SpecialFolder.ApplicationData)
-                + "\\Zhdanova\\ContactsApp");
+                Directory.CreateDirectory(way);
                 if (!File.Exists(FileName))
                 {
                     File.Create(FileName);
