@@ -15,11 +15,6 @@ namespace ContactsApp.Model
     public class ProjectSerializer
     {
         /// <summary>
-        /// Экземляр класса потока
-        /// </summary>
-        private Stream _stream;
-
-        /// <summary>
         /// Имя файла (путь)
         /// </summary>
         public string FileName { get; set; }
@@ -42,9 +37,9 @@ namespace ContactsApp.Model
             }
 
             JsonSerializer serializer = new JsonSerializer();
-            using (_stream = File.Open(@FileName, FileMode.OpenOrCreate, FileAccess.Write))
+            using (var stream = File.Open(@FileName, FileMode.OpenOrCreate, FileAccess.Write))
             {
-                StreamWriter _streamWriter = new StreamWriter(_stream);
+                StreamWriter _streamWriter = new StreamWriter(stream);
                 using (JsonWriter _writer = new JsonTextWriter(_streamWriter))
                 {
                     serializer.Serialize(_writer, project);
@@ -72,9 +67,9 @@ namespace ContactsApp.Model
             try
             {
                 JsonSerializer serializer = new JsonSerializer();
-                using (_stream = File.Open(@FileName, FileMode.OpenOrCreate, FileAccess.Read))
+                using (var stream = File.Open(@FileName, FileMode.OpenOrCreate, FileAccess.Read))
                 {
-                    StreamReader _streamReader = new StreamReader(_stream);
+                    StreamReader _streamReader = new StreamReader(stream);
                     using (JsonReader _reader = new JsonTextReader(_streamReader))
                     {
                         project = (Project)serializer.Deserialize(_reader, typeof(Project));
