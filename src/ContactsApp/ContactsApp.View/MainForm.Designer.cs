@@ -52,7 +52,6 @@ namespace ContactsApp.View
             this.AddContactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.EditContactToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.RemoveContactToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.addRandomContactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DateOfBirthPanel = new System.Windows.Forms.Panel();
@@ -261,8 +260,7 @@ namespace ContactsApp.View
             this.EditToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AddContactToolStripMenuItem,
             this.EditContactToolStripMenuItem1,
-            this.RemoveContactToolStripMenuItem2,
-            this.addRandomContactToolStripMenuItem});
+            this.RemoveContactToolStripMenuItem2});
             this.EditToolStripMenuItem.Name = "EditToolStripMenuItem";
             this.EditToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.EditToolStripMenuItem.Text = "Edit";
@@ -270,30 +268,23 @@ namespace ContactsApp.View
             // AddContactToolStripMenuItem
             // 
             this.AddContactToolStripMenuItem.Name = "AddContactToolStripMenuItem";
-            this.AddContactToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.AddContactToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.AddContactToolStripMenuItem.Text = "Add Contact";
             this.AddContactToolStripMenuItem.Click += new System.EventHandler(this.AddContactToolStripMenuItem_Click_1);
             // 
             // EditContactToolStripMenuItem1
             // 
             this.EditContactToolStripMenuItem1.Name = "EditContactToolStripMenuItem1";
-            this.EditContactToolStripMenuItem1.Size = new System.Drawing.Size(189, 22);
+            this.EditContactToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.EditContactToolStripMenuItem1.Text = "Edit Contact";
             this.EditContactToolStripMenuItem1.Click += new System.EventHandler(this.EditContactToolStripMenuItem1_Click);
             // 
             // RemoveContactToolStripMenuItem2
             // 
             this.RemoveContactToolStripMenuItem2.Name = "RemoveContactToolStripMenuItem2";
-            this.RemoveContactToolStripMenuItem2.Size = new System.Drawing.Size(189, 22);
+            this.RemoveContactToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.RemoveContactToolStripMenuItem2.Text = "Remove Contact";
             this.RemoveContactToolStripMenuItem2.Click += new System.EventHandler(this.RemoveContactToolStripMenuItem2_Click);
-            // 
-            // addRandomContactToolStripMenuItem
-            // 
-            this.addRandomContactToolStripMenuItem.Name = "addRandomContactToolStripMenuItem";
-            this.addRandomContactToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.addRandomContactToolStripMenuItem.Text = "Add Random Contact";
-            this.addRandomContactToolStripMenuItem.Click += new System.EventHandler(this.addRandomContactToolStripMenuItem_Click);
             // 
             // HelpToolStripMenuItem
             // 
@@ -460,7 +451,6 @@ namespace ContactsApp.View
         private System.Windows.Forms.ToolStripMenuItem RemoveContactToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem AboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ExitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addRandomContactToolStripMenuItem;
         private System.Windows.Forms.Panel DateOfBirthPanel;
         private System.Windows.Forms.Label BirthdaysLabel;
         private System.Windows.Forms.PictureBox pictureBox1;
