@@ -18,46 +18,85 @@ namespace ContactsApp.View
         /// Ошибка фамилии
         /// </summary>
         private string _surnameError;
+
         /// <summary>
         /// Ошибка имени
         /// </summary>
         private string _nameError;
+
         /// <summary>
         /// Ошибка даты рождения
         /// </summary>
         private string _dateOfBirthError;
+
         /// <summary>
         /// Ошибка номера телефона
         /// </summary>
         private string _phoneNumberError;
+
         /// <summary>
         /// Ошибка e-mail`а
         /// </summary>
         private string _emailError;
+
         /// <summary>
         /// Ошибка VK ID
         /// </summary>
         private string _vkIDError;
+
         /// <summary>
         /// Цвет поля при ошибке
         /// </summary>
         private readonly Color ErrorColor = Color.LightPink;
+
         /// <summary>
         /// Цвет поля при корректных данных
         /// </summary>
         private readonly Color OkColor = Color.White;
+
         /// <summary>
         /// Общая ошибка
         /// </summary>
         private string _error = "";
+
         /// <summary>
         /// Создает новый экземпляр
         /// </summary>
         private Contact _contact;
+
         /// <summary>
         /// Создает копию экземпляра (создано для правильной работы CancelButton)
         /// </summary>
         private Contact _contactCopy;
+
+        public ContactForm()
+        {
+            InitializeComponent();
+        }
+
+        /// <summary>
+        /// Создает копию контакта
+        /// </summary>
+        public Contact Contact
+        {
+            get
+            {
+                return _contact;
+            }
+            set
+            {
+                _contact = value;
+                if (_contact != null)
+                {
+                    _contactCopy = (Contact)_contact.Clone();
+                }
+                else
+                {
+                    _contactCopy = new Contact();
+                }
+                UpdateForm();
+            }
+        }
 
         /// <summary>
         /// Выводит данные на форму
@@ -248,31 +287,6 @@ namespace ContactsApp.View
             _contactCopy.VkID = VKIDTextBox.Text;
         }
 
-
-        /// <summary>
-        /// Создает копию контакта
-        /// </summary>
-        public Contact Contact
-        {
-            get
-            {
-                return _contact;
-            }
-            set
-            {
-                _contact = value;
-                if (_contact != null)
-                {
-                    _contactCopy = (Contact)_contact.Clone();
-                }
-                else
-                {
-                    _contactCopy = new Contact();
-                }
-                UpdateForm();
-            }
-        }
-
         private void CancelButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
@@ -286,11 +300,6 @@ namespace ContactsApp.View
                 _contact = _contactCopy;
                 DialogResult = DialogResult.OK;
             }
-        }
-
-        public ContactForm()
-        {
-            InitializeComponent();
         }
     }
 }

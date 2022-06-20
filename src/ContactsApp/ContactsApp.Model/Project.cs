@@ -31,10 +31,10 @@ namespace ContactsApp.Model
         /// </summary>
         /// <param name="Contacts"></param>
         /// <returns></returns>
-        public List<Contact> SortAlphabetically(List<Contact> Contacts)
+        public List<Contact> SortAlphabetically(List<Contact> contacts)
         {
-            Contacts = Contacts.OrderBy(contact => contact.Surname).ToList();
-            return Contacts;
+            contacts = contacts.OrderBy(contact => contact.Surname).ToList();
+            return contacts;
         }
 
         /// <summary>
@@ -43,10 +43,10 @@ namespace ContactsApp.Model
         /// <param name="Contacts"></param>
         /// <param name="dateOfBirth"></param>
         /// <returns></returns>
-        public List<Contact> SearchByDateOfBirth(List<Contact> Contacts)
+        public List<Contact> SearchByDateOfBirth(List<Contact> contacts)
         {
-            Contacts = Contacts.Where(contact => (contact.DateOfBirth.Day == DateTime.Now.Day) && (contact.DateOfBirth.Month == DateTime.Now.Month)).ToList();
-            return Contacts;
+            contacts =contacts.Where(contact => (contact.DateOfBirth.Day == DateTime.Now.Day) && (contact.DateOfBirth.Month == DateTime.Now.Month)).ToList();
+            return contacts;
         }
     }
 }

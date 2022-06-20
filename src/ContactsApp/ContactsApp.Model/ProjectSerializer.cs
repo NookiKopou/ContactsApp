@@ -39,10 +39,10 @@ namespace ContactsApp.Model
             JsonSerializer serializer = new JsonSerializer();
             using (var stream = File.Open(@FileName, FileMode.OpenOrCreate, FileAccess.Write))
             {
-                StreamWriter _streamWriter = new StreamWriter(stream);
-                using (JsonWriter _writer = new JsonTextWriter(_streamWriter))
+                StreamWriter streamWriter = new StreamWriter(stream);
+                using (JsonWriter writer = new JsonTextWriter(streamWriter))
                 {
-                    serializer.Serialize(_writer, project);
+                    serializer.Serialize(writer, project);
                 }
             }
         }
@@ -68,10 +68,10 @@ namespace ContactsApp.Model
                 JsonSerializer serializer = new JsonSerializer();
                 using (var stream = File.Open(@FileName, FileMode.OpenOrCreate, FileAccess.Read))
                 {
-                    StreamReader _streamReader = new StreamReader(stream);
-                    using (JsonReader _reader = new JsonTextReader(_streamReader))
+                    StreamReader streamReader = new StreamReader(stream);
+                    using (JsonReader reader = new JsonTextReader(streamReader))
                     {
-                        project = (Project)serializer.Deserialize(_reader, typeof(Project));
+                        project = (Project)serializer.Deserialize(reader, typeof(Project));
                     }
                 }
             }

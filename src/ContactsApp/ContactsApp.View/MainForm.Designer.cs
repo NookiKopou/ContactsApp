@@ -268,21 +268,21 @@ namespace ContactsApp.View
             // AddContactToolStripMenuItem
             // 
             this.AddContactToolStripMenuItem.Name = "AddContactToolStripMenuItem";
-            this.AddContactToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.AddContactToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.AddContactToolStripMenuItem.Text = "Add Contact";
             this.AddContactToolStripMenuItem.Click += new System.EventHandler(this.AddContactToolStripMenuItem_Click_1);
             // 
             // EditContactToolStripMenuItem1
             // 
             this.EditContactToolStripMenuItem1.Name = "EditContactToolStripMenuItem1";
-            this.EditContactToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.EditContactToolStripMenuItem1.Size = new System.Drawing.Size(162, 22);
             this.EditContactToolStripMenuItem1.Text = "Edit Contact";
             this.EditContactToolStripMenuItem1.Click += new System.EventHandler(this.EditContactToolStripMenuItem1_Click);
             // 
             // RemoveContactToolStripMenuItem2
             // 
             this.RemoveContactToolStripMenuItem2.Name = "RemoveContactToolStripMenuItem2";
-            this.RemoveContactToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.RemoveContactToolStripMenuItem2.Size = new System.Drawing.Size(162, 22);
             this.RemoveContactToolStripMenuItem2.Text = "Remove Contact";
             this.RemoveContactToolStripMenuItem2.Click += new System.EventHandler(this.RemoveContactToolStripMenuItem2_Click);
             // 
@@ -303,6 +303,8 @@ namespace ContactsApp.View
             // 
             // DateOfBirthPanel
             // 
+            this.DateOfBirthPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DateOfBirthPanel.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.DateOfBirthPanel.Controls.Add(this.TodayBrirthdayLabel);
             this.DateOfBirthPanel.Controls.Add(this.pictureBox1);

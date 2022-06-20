@@ -39,18 +39,10 @@ namespace ContactsApp.View
         private void OutputBirthday()
         {
             _currentContactDateOfBirth = _project.SearchByDateOfBirth(_currentContacts);
-            if (_currentContactDateOfBirth.Count > 0)
-            {
-                DateOfBirthPanel.Visible = true;
-            }
-            else
-            {
-                DateOfBirthPanel.Visible = false;
-            }
-            for (int i = 0; i < _currentContactDateOfBirth.Count; i++)
-            {
-                BirthdaysLabel.Text = BirthdaysLabel.Text + _currentContactDateOfBirth[i].Surname + ", " ;
-            }
+            DateOfBirthPanel.Visible = _currentContactDateOfBirth.Count > 0;
+
+            var surnames = _currentContactDateOfBirth.Select(contact => contact.Surname).ToArray();
+            BirthdaysLabel.Text = string.Join(",", surnames);
         }
 
         /// <summary>
@@ -150,14 +142,14 @@ namespace ContactsApp.View
                 EmailTextBox.Text = "";
                 VKIDTextBox.Text = "";
             }
-            var path = _currentContacts[index];
+            var contact = _currentContacts[index];
 
-            SurnameTextBox.Text = path.Surname;
-            NameTextBox.Text = path.Name;
-            DateOfBirthTimePicker.Value = path.DateOfBirth;
-            PhoneNumberTextBox.Text = Convert.ToString(path.PhoneNumber.Number);
-            EmailTextBox.Text = path.Email;
-            VKIDTextBox.Text = path.VkID;
+            SurnameTextBox.Text = contact.Surname;
+            NameTextBox.Text = contact.Name;
+            DateOfBirthTimePicker.Value = contact.DateOfBirth;
+            PhoneNumberTextBox.Text = Convert.ToString(contact.PhoneNumber.Number);
+            EmailTextBox.Text = contact.Email;
+            VKIDTextBox.Text = contact.VkID;
         }
 
         /// <summary>
