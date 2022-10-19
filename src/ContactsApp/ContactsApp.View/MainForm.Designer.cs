@@ -161,7 +161,7 @@ namespace ContactsApp.View
             this.SurnameTextBox.Location = new System.Drawing.Point(290, 31);
             this.SurnameTextBox.Name = "SurnameTextBox";
             this.SurnameTextBox.ReadOnly = true;
-            this.SurnameTextBox.Size = new System.Drawing.Size(334, 20);
+            this.SurnameTextBox.Size = new System.Drawing.Size(269, 20);
             this.SurnameTextBox.TabIndex = 10;
             // 
             // NameTextBox
@@ -171,7 +171,7 @@ namespace ContactsApp.View
             this.NameTextBox.Location = new System.Drawing.Point(290, 57);
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.ReadOnly = true;
-            this.NameTextBox.Size = new System.Drawing.Size(334, 20);
+            this.NameTextBox.Size = new System.Drawing.Size(269, 20);
             this.NameTextBox.TabIndex = 11;
             // 
             // PhoneNumberTextBox
@@ -181,7 +181,7 @@ namespace ContactsApp.View
             this.PhoneNumberTextBox.Location = new System.Drawing.Point(290, 109);
             this.PhoneNumberTextBox.Name = "PhoneNumberTextBox";
             this.PhoneNumberTextBox.ReadOnly = true;
-            this.PhoneNumberTextBox.Size = new System.Drawing.Size(334, 20);
+            this.PhoneNumberTextBox.Size = new System.Drawing.Size(269, 20);
             this.PhoneNumberTextBox.TabIndex = 12;
             // 
             // EmailTextBox
@@ -191,7 +191,7 @@ namespace ContactsApp.View
             this.EmailTextBox.Location = new System.Drawing.Point(290, 135);
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.ReadOnly = true;
-            this.EmailTextBox.Size = new System.Drawing.Size(334, 20);
+            this.EmailTextBox.Size = new System.Drawing.Size(269, 20);
             this.EmailTextBox.TabIndex = 13;
             // 
             // VKIDTextBox
@@ -201,7 +201,7 @@ namespace ContactsApp.View
             this.VKIDTextBox.Location = new System.Drawing.Point(290, 161);
             this.VKIDTextBox.Name = "VKIDTextBox";
             this.VKIDTextBox.ReadOnly = true;
-            this.VKIDTextBox.Size = new System.Drawing.Size(334, 20);
+            this.VKIDTextBox.Size = new System.Drawing.Size(269, 20);
             this.VKIDTextBox.TabIndex = 14;
             // 
             // DateOfBirthTimePicker
@@ -220,7 +220,7 @@ namespace ContactsApp.View
             this.ContactsListBox.IntegralHeight = false;
             this.ContactsListBox.Location = new System.Drawing.Point(12, 53);
             this.ContactsListBox.Name = "ContactsListBox";
-            this.ContactsListBox.Size = new System.Drawing.Size(210, 409);
+            this.ContactsListBox.Size = new System.Drawing.Size(210, 411);
             this.ContactsListBox.TabIndex = 16;
             this.ContactsListBox.SelectedIndexChanged += new System.EventHandler(this.ContactsListBox_SelectedIndexChanged);
             // 
@@ -310,9 +310,9 @@ namespace ContactsApp.View
             this.DateOfBirthPanel.Controls.Add(this.pictureBox1);
             this.DateOfBirthPanel.Controls.Add(this.BirthdaysLabel);
             this.DateOfBirthPanel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.DateOfBirthPanel.Location = new System.Drawing.Point(235, 417);
+            this.DateOfBirthPanel.Location = new System.Drawing.Point(235, 419);
             this.DateOfBirthPanel.Name = "DateOfBirthPanel";
-            this.DateOfBirthPanel.Size = new System.Drawing.Size(390, 77);
+            this.DateOfBirthPanel.Size = new System.Drawing.Size(324, 77);
             this.DateOfBirthPanel.TabIndex = 19;
             this.DateOfBirthPanel.Visible = false;
             // 
@@ -351,7 +351,7 @@ namespace ContactsApp.View
             this.RemoveButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.RemoveButton.FlatAppearance.BorderSize = 0;
             this.RemoveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RemoveButton.Location = new System.Drawing.Point(81, 468);
+            this.RemoveButton.Location = new System.Drawing.Point(81, 470);
             this.RemoveButton.Name = "RemoveButton";
             this.RemoveButton.Size = new System.Drawing.Size(29, 26);
             this.RemoveButton.TabIndex = 0;
@@ -365,7 +365,7 @@ namespace ContactsApp.View
             this.EditButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.EditButton.FlatAppearance.BorderSize = 0;
             this.EditButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EditButton.Location = new System.Drawing.Point(48, 468);
+            this.EditButton.Location = new System.Drawing.Point(48, 470);
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(27, 26);
             this.EditButton.TabIndex = 0;
@@ -379,7 +379,7 @@ namespace ContactsApp.View
             this.AddButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.AddButton.FlatAppearance.BorderSize = 0;
             this.AddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddButton.Location = new System.Drawing.Point(12, 468);
+            this.AddButton.Location = new System.Drawing.Point(12, 470);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(30, 26);
             this.AddButton.TabIndex = 17;
@@ -390,7 +390,7 @@ namespace ContactsApp.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(637, 502);
+            this.ClientSize = new System.Drawing.Size(571, 504);
             this.Controls.Add(this.DateOfBirthPanel);
             this.Controls.Add(this.RemoveButton);
             this.Controls.Add(this.EditButton);
